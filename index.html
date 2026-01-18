@@ -68,7 +68,7 @@ body{
     100%{ box-shadow:0 0 48px rgba(212,175,55,1); }
 }
 
-/* ===== TITLE WITH KING ICONS ===== */
+/* ===== TITLE ===== */
 .title{
     display:flex;
     align-items:center;
@@ -84,14 +84,8 @@ body{
 }
 
 @keyframes kingGlow{
-    0%{
-        text-shadow:0 0 8px rgba(250,204,21,0.6);
-        transform:scale(1);
-    }
-    100%{
-        text-shadow:0 0 22px rgba(250,204,21,1);
-        transform:scale(1.15);
-    }
+    0%{ text-shadow:0 0 8px rgba(250,204,21,0.6); }
+    100%{ text-shadow:0 0 22px rgba(250,204,21,1); }
 }
 
 .title h1{
@@ -101,7 +95,6 @@ body{
     letter-spacing:1px;
 }
 
-/* ===== SUBTITLE ===== */
 .sub{
     font-size:14px;
     color:#d4d4d8;
@@ -182,14 +175,14 @@ body{
     margin-bottom:20px;
 }
 
-/* ===== DISCLAIMER ===== */
 .disclaimer{
     font-size:11.5px;
     color:#a1a1aa;
     line-height:1.6;
 }
 </style>
-    <!-- Meta Pixel Code -->
+
+<!-- META PIXEL -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -199,25 +192,42 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '3219260574904547');
-fbq('track', 'PageView');
+
+/* ===== PAGE VIEW (ONE TIME PER DEVICE) ===== */
+if (!localStorage.getItem('zth_pageview_fired')) {
+    fbq('track', 'PageView');
+    localStorage.setItem('zth_pageview_fired', 'true');
+}
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3219260574904547&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3219260574904547&ev=PageView&noscript=1"/>
+</noscript>
+
+<!-- SUBSCRIBE TRACKING -->
+<script>
+function trackSubscribe() {
+    if (!localStorage.getItem('zth_subscribe_fired')) {
+        fbq('track', 'Subscribe');
+        localStorage.setItem('zth_subscribe_fired', 'true');
+    }
+    window.location.href = 'https://t.me/+Zc0W7C3Fnso3ZDZl';
+}
+</script>
+
 </head>
 
 <body>
 
 <div class="card">
 
-    <!-- LOGO -->
     <div class="logo-wrap">
         <img src="https://uploads.onecompiler.io/446vwj75z/4494yw3r2/WhatsApp%20Image%202025-12-29%20at%2019.25.22%20(1).jpeg" alt="Zero To Hero">
     </div>
 
-    <!-- TITLE -->
     <div class="title">
         <i class="fa-solid fa-crown"></i>
         <h1>Zero To Hero</h1>
@@ -233,9 +243,7 @@ src="https://www.facebook.com/tr?id=3219260574904547&ev=PageView&noscript=1"
         <div class="feature"><i class="fa-solid fa-gem"></i>No Hype • Only Skill & Clarity</div>
     </div>
 
-    <!-- TELEGRAM BUTTON -->
-    <button class="telegram-btn"
-        onclick="window.location.href='https://t.me/+Zc0W7C3Fnso3ZDZl'">
+    <button class="telegram-btn" onclick="trackSubscribe()">
         <i class="fa-brands fa-telegram"></i>
         JOIN TELEGRAM CHANNEL
     </button>
@@ -259,4 +267,3 @@ src="https://www.facebook.com/tr?id=3219260574904547&ev=PageView&noscript=1"
 
 </body>
 </html>
-
