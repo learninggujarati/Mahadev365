@@ -17,7 +17,6 @@
     padding:0;
     box-sizing:border-box;
 }
-
 body{
     min-height:100vh;
     background:radial-gradient(circle at top,#1e1b4b,#020617 70%);
@@ -27,25 +26,17 @@ body{
     font-family:'Poppins',sans-serif;
     color:#fff;
 }
-
-/* ===== CARD ===== */
 .card{
     width:92%;
     max-width:440px;
     padding:42px 28px 36px;
     border-radius:32px;
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,0.12),
-        rgba(255,255,255,0.03)
-    );
+    background:linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03));
     backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,0.18);
     box-shadow:0 35px 90px rgba(0,0,0,0.65);
     text-align:center;
 }
-
-/* ===== LOGO ===== */
 .logo-wrap{
     width:130px;
     height:130px;
@@ -55,20 +46,11 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    animation:luxGlow 3s infinite alternate;
 }
-
 .logo-wrap img{
     width:85%;
     border-radius:50%;
 }
-
-@keyframes luxGlow{
-    0%{ box-shadow:0 0 18px rgba(212,175,55,0.5); }
-    100%{ box-shadow:0 0 48px rgba(212,175,55,1); }
-}
-
-/* ===== TITLE ===== */
 .title{
     display:flex;
     align-items:center;
@@ -76,37 +58,24 @@ body{
     gap:14px;
     margin-bottom:10px;
 }
-
 .title i{
     font-size:26px;
     color:#facc15;
-    animation:kingGlow 2.5s infinite alternate;
 }
-
-@keyframes kingGlow{
-    0%{ text-shadow:0 0 8px rgba(250,204,21,0.6); }
-    100%{ text-shadow:0 0 22px rgba(250,204,21,1); }
-}
-
 .title h1{
     font-family:'Playfair Display',serif;
     font-size:28px;
     font-weight:700;
-    letter-spacing:1px;
 }
-
 .sub{
     font-size:14px;
     color:#d4d4d8;
     margin-bottom:28px;
 }
-
-/* ===== FEATURES ===== */
 .features{
     text-align:left;
     margin-bottom:32px;
 }
-
 .feature{
     display:flex;
     align-items:center;
@@ -114,20 +83,10 @@ body{
     font-size:15px;
     margin-bottom:16px;
 }
-
 .feature i{
     font-size:18px;
     color:#facc15;
-    animation:iconPulse 2s infinite;
 }
-
-@keyframes iconPulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.15);}
-    100%{transform:scale(1);}
-}
-
-/* ===== TELEGRAM BUTTON ===== */
 .telegram-btn{
     width:100%;
     padding:17px;
@@ -142,39 +101,19 @@ body{
     align-items:center;
     justify-content:center;
     gap:12px;
-    box-shadow:0 0 28px rgba(250,204,21,0.75);
-    animation:btnPulse 1.6s infinite;
 }
-
 .telegram-btn i{
     font-size:22px;
-    animation:fly 1.2s infinite;
 }
-
-@keyframes btnPulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.06);}
-    100%{transform:scale(1);}
-}
-
-@keyframes fly{
-    0%{transform:translateX(0);}
-    50%{transform:translateX(6px);}
-    100%{transform:translateX(0);}
-}
-
-/* ===== RATING ===== */
 .stars{
     margin:22px 0 6px;
     color:#facc15;
 }
-
 .rating{
     font-size:13px;
     color:#d4d4d8;
     margin-bottom:20px;
 }
-
 .disclaimer{
     font-size:11.5px;
     color:#a1a1aa;
@@ -184,22 +123,28 @@ body{
 
 <!-- META PIXEL -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '3219260574904547');
+fbq('init','3219260574904547');
 
-/* ===== PAGE VIEW (ONE TIME PER DEVICE) ===== */
-if (!localStorage.getItem('zth_pageview_fired')) {
-    fbq('track', 'PageView');
-    localStorage.setItem('zth_pageview_fired', 'true');
-}
+/* ===== PAGE VIEW : ONLY ONCE PER DEVICE ===== */
+try {
+    if (!localStorage.getItem('zth_pageview_fired')) {
+        fbq('track','PageView');
+        localStorage.setItem('zth_pageview_fired','1');
+    }
+} catch(e){}
 </script>
 
 <noscript>
@@ -210,10 +155,14 @@ src="https://www.facebook.com/tr?id=3219260574904547&ev=PageView&noscript=1"/>
 <!-- SUBSCRIBE TRACKING -->
 <script>
 function trackSubscribe() {
-    if (!localStorage.getItem('zth_subscribe_fired')) {
-        fbq('track', 'Subscribe');
-        localStorage.setItem('zth_subscribe_fired', 'true');
-    }
+
+    try {
+        if (!localStorage.getItem('zth_subscribe_fired')) {
+            fbq('track','Subscribe');
+            localStorage.setItem('zth_subscribe_fired','1');
+        }
+    } catch(e){}
+
     window.location.href = 'https://t.me/+Zc0W7C3Fnso3ZDZl';
 }
 </script>
